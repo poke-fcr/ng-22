@@ -1,0 +1,133 @@
+<p>signal-form-v2 works!</p>
+
+<form (submit)="$event.preventDefault(); submitForm()">
+  <div>
+    <label for="fullName"> Full Name </label>
+    <input id="fullName" type="text" [formField]="jobApplicationForm.fullName" />
+    @if (jobApplicationForm.fullName().touched() && jobApplicationForm.fullName().invalid()) {
+      {{ jobApplicationForm.fullName().errors() | json }}
+      @for (error of jobApplicationForm.fullName().errors(); track $index) {
+        <p>{{ error?.message }}</p>
+      }
+    }
+  </div>
+  <!--  Email-->
+  <div>
+    <label for="email"> Email </label>
+    <input id="email" type="email" [formField]="jobApplicationForm.email" />
+    @if (jobApplicationForm.email().touched() && jobApplicationForm.email().invalid()) {
+      {{ jobApplicationForm.email().errors() | json }}
+      @for (error of jobApplicationForm.email().errors(); track $index) {
+        <p>{{ error?.message }}</p>
+      }
+    }
+  </div>
+  <!--  Phone number-->
+  <div>
+    <label for="phoneNumber"> Phone Number </label>
+    <input id="phoneNumber" type="number" [formField]="jobApplicationForm.phoneNumber" />
+    @if (jobApplicationForm.phoneNumber().touched() && jobApplicationForm.phoneNumber().invalid()) {
+      {{ jobApplicationForm.phoneNumber().errors() | json }}
+      @for (error of jobApplicationForm.phoneNumber().errors(); track $index) {
+        <p>{{ error?.message }}</p>
+      }
+    }
+  </div>
+
+  <!--  Age-->
+  <div>
+    <label for="age"> Age </label>
+    <input id="age" type="number" [formField]="jobApplicationForm.age" />
+    @if (jobApplicationForm.age().touched() && jobApplicationForm.age().invalid()) {
+      {{ jobApplicationForm.age().errors() | json }}
+      @for (error of jobApplicationForm.age().errors(); track $index) {
+        <p>{{ error?.message }}</p>
+      }
+    }
+  </div>
+
+  <!--  Experience-->
+  <div>
+    <label for="experience"> Experience </label>
+    <input id="experience" type="number" [formField]="jobApplicationForm.experience" />
+    @if (jobApplicationForm.experience().touched() && jobApplicationForm.experience().invalid()) {
+      {{ jobApplicationForm.experience().errors() | json }}
+      @for (error of jobApplicationForm.experience().errors(); track $index) {
+        <p>{{ error?.message }}</p>
+      }
+    }
+  </div>
+
+  <!--  Job role-->
+  <div>
+    <label for="jobRole"> Job Role </label>
+    <select [formField]="jobApplicationForm.jobRole">
+      <option value="">--select--</option>
+      @for (jobRole of jobRoleOptions; track $index) {
+        <option [value]="jobRole">{{ jobRole }}</option>
+      }
+    </select>
+    @if (jobApplicationForm.jobRole().touched() && jobApplicationForm.jobRole().invalid()) {
+      {{ jobApplicationForm.jobRole().errors() | json }}
+      @for (error of jobApplicationForm.jobRole().errors(); track $index) {
+        <p>{{ error?.message }}</p>
+      }
+    }
+  </div>
+
+  <!--  Skills-->
+  <div>
+    <label for="skills"> Skills </label>
+    <input id="skills" type="checkbox" [formField]="jobApplicationForm.skills" /> Problem Solving
+    <input id="skills2" type="checkbox" [formField]="jobApplicationForm.skills" /> Team work
+    @if (jobApplicationForm.skills().touched() && jobApplicationForm.skills().invalid()) {
+      {{ jobApplicationForm.skills().errors() | json }}
+      @for (error of jobApplicationForm.skills().errors(); track $index) {
+        <p>{{ error?.message }}</p>
+      }
+    }
+  </div>
+
+  <!--  Expected Salary-->
+  <div>
+    <label for="expectedSalary"> Expected Salary </label>
+    <input id="expectedSalary" type="number" [formField]="jobApplicationForm.expectedSalary" />
+    @if (jobApplicationForm.expectedSalary().touched() && jobApplicationForm.expectedSalary().invalid()) {
+      {{ jobApplicationForm.expectedSalary().errors() | json }}
+      @for (error of jobApplicationForm.expectedSalary().errors(); track $index) {
+        <p>{{ error?.message }}</p>
+      }
+    }
+  </div>
+
+  <!-- Currently Employed-->
+  <div>
+    <label for="currentlyEmployed"> Currently Employed </label>
+    <input id="currentlyEmployed" type="checkbox" [formField]="jobApplicationForm.currentlyEmployed" /> Yes
+    @if (jobApplicationForm.currentlyEmployed().touched() && jobApplicationForm.currentlyEmployed().invalid()) {
+      {{ jobApplicationForm.currentlyEmployed().errors() | json }}
+      @for (error of jobApplicationForm.currentlyEmployed().errors(); track $index) {
+        <p>{{ error?.message }}</p>
+      }
+    }
+  </div>
+
+  <!--  Notice Period-->
+  <div>
+    <label for="noticePeriod"> Notice Period </label>
+    <input id="noticePeriod" type="radio" [formField]="jobApplicationForm.noticePeriod" /> 30 Days
+    <input id="noticePeriod" type="radio" [formField]="jobApplicationForm.noticePeriod" /> 60 Days
+    <input id="noticePeriod" type="radio" [formField]="jobApplicationForm.noticePeriod" /> 90 Days
+    @if (jobApplicationForm.noticePeriod().touched() && jobApplicationForm.noticePeriod().invalid()) {
+      {{ jobApplicationForm.noticePeriod().errors() | json }}
+      @for (error of jobApplicationForm.noticePeriod().errors(); track $index) {
+        <p>{{ error?.message }}</p>
+      }
+    }
+  </div>
+
+  <div style="margin-top: 12px">
+    <button type="submit">Submit</button>
+  </div>
+
+</form>

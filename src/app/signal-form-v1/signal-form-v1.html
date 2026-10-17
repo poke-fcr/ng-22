@@ -1,0 +1,27 @@
+<p>Signal Form</p>
+
+<form (submit)="$event.preventDefault(); submitForm()">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" type="text" [formField]="employeeForm.name" />
+
+    @if (employeeForm.name().touched() && employeeForm.name().invalid()) {
+      @for (error of employeeForm.name().errors(); track $index) {
+        <p>{{ error.message }}</p>
+      }
+    }
+  </div>
+  <div>
+    <label for="age">Age</label>
+    <input id="age" type="number" [formField]="employeeForm.age" />
+
+    @if (employeeForm.age().touched() && employeeForm.age().invalid()) {
+      @for (error of employeeForm.age().errors(); track $index) {
+        <p>{{ error.message }}</p>
+      }
+    }
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>

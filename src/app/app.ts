@@ -1,12 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink, CommonModule],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('ng-22');
+  navigationToolBar = [
+    {
+      name: 'signal form v1',
+      route: 'signal-form-v1',
+    },
+    {
+      name: 'signal form v2',
+      route: 'signal-form-v2',
+    },
+  ];
 }
